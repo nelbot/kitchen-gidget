@@ -1,0 +1,1 @@
+[13-Mar-2016 11:52:46 America/Denver] PHP Fatal error:  Call to undefined function get_template_directory() in /home2/kitchfy1/public_html/wp-content/themes/restored316-divine/functions.php on line 15
