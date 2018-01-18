@@ -2681,6 +2681,39 @@ Media Queries
     margin-bottom: 40px;
 }
 
+.site-description {
+  height: 0;
+}
+
+.site-header {
+  padding-bottom: 0;
+}
+
+.site-container {
+  margin-top: 0;
+  padding-top: 20px;
+}
+
+@media only screen and (max-width: 1023px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .site-container {
+    padding-top: 0px;
+  }
+
+  .header-image .site-title>a {
+    min-height: 120px;
+  }
+
+  .site-inner {
+    margin-top: 0;
+  }
+}
+
 /* End additions by Nelson, Once Coupled January 2018 */
 
 /* This theme contains intellectual property owned by Restored 316 LLC, including trademarks, copyrights, proprietary information, and other intellectual property. You may not modify, publish, transmit, participate in the transfer or sale of, create derivative works from, distribute, reproduce or perform, or in any way exploit in any format whatsoever any of this theme or intellectual property, in whole or in part, without our prior written consent.
