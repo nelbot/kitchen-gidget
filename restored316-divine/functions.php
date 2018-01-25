@@ -297,19 +297,39 @@ genesis_register_sidebar( array(
 	'name'        => __( 'Nav Social Menu', 'divine' ),
 	'description' => __( 'This is the nav social menu section.', 'divine' ),
 ) );
-genesis_register_sidebar( array(
-	'id'          => 'below-mobile-menu',
-	'name'        => __( 'Below Mobile Menu', 'divine' ),
-	'description' => __( 'This is the area below the mobile menu.', 'divine' ),
-) );
+// genesis_register_sidebar( array(
+// 	'id'          => 'below-mobile-menu',
+// 	'name'        => __( 'Below Mobile Menu', 'divine' ),
+// 	'description' => __( 'This is the area below the mobile menu.', 'divine' ),
+// ) );
 
 
-add_action( 'genesis_after_header', 'oc_below_mobile_menu' );
-function oc_below_mobile_menu() {
-if ( wp_is_mobile() ) {
-		genesis_widget_area( 'below-mobile-menu', array(
-			'before' => '<div id="below-mobile-menu"><div class="wrap">',
-			'after' => '</div></div>',
-		) );
-	}
+// add_action( 'genesis_after_header', 'oc_below_mobile_menu' );
+// function oc_below_mobile_menu() {
+// if ( wp_is_mobile() ) {
+// 		genesis_widget_area( 'below-mobile-menu', array(
+// 			'before' => '<div id="below-mobile-menu"><div class="wrap">',
+// 			'after' => '</div></div>',
+// 		) );
+// 	}
+// }
+
+
+add_filter( 'wp_nav_menu_items', 'theme_menu_extras', 8, 2 );
+/**
+ * Filter menu items, appending either a search form or today's date.
+ *
+ * @param string   $menu HTML string of list items.
+ * @param stdClass $args Menu arguments.
+ *
+ * @return string Amended HTML string of list items.
+ */
+function theme_menu_extras( $menu, $args ) {
+  if ( wp_is_mobile() ) {
+    ob_start();
+    get_search_form();
+    $search = ob_get_clean();
+    $menu  .= '<li class="search">' . $search . '</li>';
+}
+  return $menu;
 }
