@@ -297,22 +297,7 @@ genesis_register_sidebar( array(
 	'name'        => __( 'Nav Social Menu', 'divine' ),
 	'description' => __( 'This is the nav social menu section.', 'divine' ),
 ) );
-// genesis_register_sidebar( array(
-// 	'id'          => 'below-mobile-menu',
-// 	'name'        => __( 'Below Mobile Menu', 'divine' ),
-// 	'description' => __( 'This is the area below the mobile menu.', 'divine' ),
-// ) );
 
-
-// add_action( 'genesis_after_header', 'oc_below_mobile_menu' );
-// function oc_below_mobile_menu() {
-// if ( wp_is_mobile() ) {
-// 		genesis_widget_area( 'below-mobile-menu', array(
-// 			'before' => '<div id="below-mobile-menu"><div class="wrap">',
-// 			'after' => '</div></div>',
-// 		) );
-// 	}
-// }
 
 
 add_filter( 'wp_nav_menu_items', 'theme_menu_extras', 8, 2 );
